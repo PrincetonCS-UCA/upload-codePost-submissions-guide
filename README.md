@@ -4,6 +4,8 @@ Student assignment submissions in COS 126/226 must be compiled and pushed to cod
 
 This guide was originally written by Nicholas Padmanabhan '23 (ntyp@princeton.edu) in November 2022.
 
+If you've already completed the prerequisites, [skip to the instructions for running the codePost compiliation & upload script](#running-the-codepost-compilation--upload-script)
+
 ## Prerequisite 1: CS Undergraduate Account
 
 If you don't have a CS Undergraduate Account (i.e. @cs.princeton.edu), follow these steps to get one.
@@ -82,3 +84,7 @@ At this point, your public key will be automatically pushed to the appropriate c
 The SSH keys are pushed out automatically for CS course accounts every hour at **15 minutes after the top of the hour**.
 
 If you are having problems with your SSH key not working, please [contact csstaff](https://csguide.cs.princeton.edu/gethelp/csstaff) with the course account you are trying to use and on what system you are trying to access the course account either CS or OIT.
+
+## Running the codePost Compilation & Upload Script
+
+1. TODO

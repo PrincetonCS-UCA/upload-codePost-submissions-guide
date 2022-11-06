@@ -75,7 +75,9 @@ ssh-rsa AAAAB3NzaC1yc...a long string of characters...velTdiwV joeuser@hostname
 9. Give your key a decent label. Paste the SSH key from your clipboard into the Public Key field. Click Submit.
    ![](/images/key-manager-form.png)
 
-At this point, your public key will be automatically pushed to the appropriate course account(s). The mappings of TAs to courses are provided by Nicki or by the faculty instructors.
+At this point, your public key will be automatically pushed to the appropriate course account(s). The mappings of TAs to courses are provided by Nicki or by the faculty instructors. In particular, ensure that a faculty instructor has enabled **CS Account Access** privileges for your netID.
+
+![](/images/cs-account-access.png)
 
 The SSH keys are pushed out automatically for CS course accounts every hour at **15 minutes after the top of the hour**.
 

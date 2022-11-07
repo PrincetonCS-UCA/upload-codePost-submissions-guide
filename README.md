@@ -1,10 +1,10 @@
 ## Context
 
-Student assignment submissions in COS 126/226 must be compiled and pushed to codePost before graders can access them. Below is a short guide for getting access to the COS 126/226 course servers and running the compilation scripts.
+Student assignment submissions in COS 126/226 must be compiled and pushed to codePost before graders can access them. Below is a short guide for getting access to the COS 126/226 course servers and uploading a coding submission to codePost.
 
 This guide was originally written by Nicholas Padmanabhan '23 (ntyp@princeton.edu) in November 2022.
 
-If you've already completed the prerequisites, [skip to the instructions for running the codePost compiliation & upload script](#running-the-codepost-compilation--upload-script)
+If you've already completed the prerequisites, [skip to the instructions for uploading a coding submission to codePost](#running-the-codepost-compilation--upload-script).
 
 ## Prerequisite 1: CS Undergraduate Account
 
@@ -85,6 +85,42 @@ The SSH keys are pushed out automatically for CS course accounts every hour at *
 
 If you are having problems with your SSH key not working, please [contact csstaff](https://csguide.cs.princeton.edu/gethelp/csstaff) with the course account you are trying to use and on what system you are trying to access the course account either CS or OIT.
 
-## Running the codePost Compilation & Upload Script
+## Uploading a Coding Submission to codePost
 
-1. TODO
+If a particular coding submission needs to be re-uploaded to codePost (including re-running tests), follow these steps.
+
+1. Open your terminal and login to the course account. Replace `yourNetID` with your netID, and `courseName` with either `cos126` or `cos226`.
+
+```
+$ ssh yourNetID@portal.cs.princeton.edu
+... complete Duo authentication
+
+$ ssh courseName@spin.cs.princeton.edu
+... enter SSH key password
+```
+
+2. Change directory into `~/temp/yourNetID`. Replace `yourNetID` with your netID. If the folder doesn't exist, this command will make it for you.
+
+```
+$ mkdir -p ~/temp/yourNetID ; cd ~/temp/yourNetID
+```
+
+3. Copy the student's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`), and replace `netID` with the student's netID. If the submission is a group submission, enter one of the group's netIDs.
+
+```
+$ cp -pr ~/submit/assignmentName/by_netid/netID ./netID
+```
+
+4. Run the testing script, replacing `assignmentName` with the assignment name (usually lowercase; use tab completion if you aren't sure) and `netID` with the student's netID you used in step 3. The script may take a couple minutes to complete.
+
+```
+$ ~/assignments/assignmentName/run-script netID
+```
+
+5. Push the submission and test output to codePost. Replace `assignmentName` with the assignment name as shown in codePost (keep the double quotes), and `netID` with the student's netID you used in step 3.
+
+```
+$ push-to-codePost --netid -a "assignmentName" -s netID
+```
+
+6. As a sanity check, verify that the submission successfully uploaded by using the codePost website.

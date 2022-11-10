@@ -105,7 +105,7 @@ $ ssh courseName@spin.cs.princeton.edu
 $ mkdir -p ~/temp/yourNetID ; cd ~/temp/yourNetID
 ```
 
-3. Copy the student's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`), and replace `netID` with the student's netID. If the submission is a group submission, enter one of the group's netIDs.
+3. Copy the student's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`), and replace `netID` with the student's netID. If the submission is a group submission, enter one of the group's netIDs. If you're logged into `cos126`, replace `submit` with `tigerfile`.
 
 ```
 $ cp -pr ~/submit/assignmentName/by_netid/netID ./netID
@@ -117,10 +117,16 @@ $ cp -pr ~/submit/assignmentName/by_netid/netID ./netID
 $ ~/assignments/assignmentName/run-script netID
 ```
 
-5. Push the submission and test output to codePost. Replace `assignmentName` with the assignment name as shown in codePost (keep the double quotes), and `netID` with the student's netID you used in step 3.
+5. Push the submission and test output to codePost. Replace `assignmentName` with the assignment name as shown in codePost (usually has capitalization; keep the double quotes in the command), and `netID` with the student's netID you used in step 3.
 
 ```
 $ push-to-codePost --netid -a "assignmentName" -s netID
 ```
 
-6. As a sanity check, verify that the submission successfully uploaded by using the codePost website.
+6. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag:
+
+```
+$ push-to-codePost --netid -a "assignmentName" -s netID --overwrite
+```
+
+7. As a sanity check, verify that the submission successfully uploaded by using the codePost website.

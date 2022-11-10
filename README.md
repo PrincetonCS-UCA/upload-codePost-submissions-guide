@@ -4,7 +4,7 @@ Student assignment submissions in COS 126/226 must be compiled and pushed to cod
 
 This guide was originally written by Nicholas Padmanabhan '23 (ntyp@princeton.edu) in November 2022.
 
-If you've already completed the prerequisites, [skip to the instructions for uploading a coding submission to codePost](#running-the-codepost-compilation--upload-script).
+If you've already completed the prerequisites, skip to the instructions (either for a [non-group](#uploading-a-submission-to-codepost-non-group-submission) or [group](#uploading-a-submission-to-codepost-group-submission) submission) for uploading a submission to codePost.
 
 ## Prerequisite 1: CS Undergraduate Account
 
@@ -85,9 +85,9 @@ The SSH keys are pushed out automatically for CS course accounts every hour at *
 
 If you are having problems with your SSH key not working, please [contact csstaff](https://csguide.cs.princeton.edu/gethelp/csstaff) with the course account you are trying to use and on what system you are trying to access the course account either CS or OIT.
 
-## Uploading a Coding Submission to codePost
+## Uploading a Submission to codePost (NON-GROUP SUBMISSION)
 
-If a particular coding submission needs to be re-uploaded to codePost (including re-running tests), follow these steps.
+If a particular submission needs to be re-uploaded to codePost (including re-running tests), follow these steps.
 
 1. Open your terminal and login to the course account. Replace `yourNetID` with your netID, and `courseName` with either `cos126` or `cos226`.
 
@@ -105,7 +105,7 @@ $ ssh courseName@spin.cs.princeton.edu
 $ mkdir -p ~/temp/yourNetID ; cd ~/temp/yourNetID
 ```
 
-3. Copy the student's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`), and replace `netID` with the student's netID. If the submission is a group submission, enter one of the group's netIDs. If you're logged into `cos126`, replace `submit` with `tigerfile`.
+3. Copy the student's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`), and replace `netID` with the student's netID. If you're logged into `cos126`, replace `submit` with `tigerfile`.
 
 ```
 $ cp -pr ~/submit/assignmentName/by_netid/netID ./netID
@@ -130,3 +130,11 @@ $ push-to-codePost --netid -a "assignmentName" -s netID --overwrite
 ```
 
 7. As a sanity check, verify that the submission successfully uploaded by using the codePost website.
+
+## Uploading a Submission to codePost (GROUP SUBMISSION)
+
+1. Follow steps 1 and 2 in the [non-group submission section](#uploading-a-submission-to-codepost-non-group-submission) above.
+
+2. ...
+
+3.

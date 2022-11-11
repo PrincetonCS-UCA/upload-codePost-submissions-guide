@@ -135,6 +135,26 @@ $ push-to-codePost --netid -a "assignmentName" -s netID --overwrite
 
 1. Follow steps 1 and 2 in the [non-group submission section](#uploading-a-submission-to-codepost-non-group-submission) above.
 
-2. ...
+2. Copy the group's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`; may have differing capitalization), and replace `netID` with **one** netID in the group. If you're logged into `cos126`, replace `submit` with `tigerfile`.
 
-3.
+```
+$ cp -pr ~/submit/assignmentName/submissions/$(groupLister2 ~/submit/assignmentName | grep netID | cut -f1 -d,) ./temp
+```
+
+3. Run the testing script, replacing `assignmentName` with the assignment name (usually lowercase; use tab completion if you aren't sure). The script may take a couple minutes to complete.
+
+```
+$ ~/assignments/assignmentName/run-script temp
+```
+
+4. Push the submission and test output to codePost. Replace `assignmentName` with the assignment name as shown in codePost (usually has capitalization; keep the double quotes in the command).
+
+```
+$ push-to-codePost -a "assignmentName" -s temp
+```
+
+5. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag:
+
+```
+$ push-to-codePost -a "assignmentName" -s temp --overwrite
+```

@@ -129,7 +129,11 @@ $ push-to-codePost --netid -a "assignmentName" -s temp
 $ push-to-codePost --netid -a "assignmentName" -s temp --overwrite
 ```
 
-7. As a sanity check, verify that the submission successfully uploaded by using the codePost website.
+7. Clean up a bit:
+
+```
+$ rm -rf temp
+```
 
 ## Uploading a Submission to codePost (GROUP SUBMISSION)
 
@@ -157,4 +161,10 @@ $ push-to-codePost -a "assignmentName" -s temp
 
 ```
 $ push-to-codePost -a "assignmentName" -s temp --overwrite
+```
+
+7. Clean up a bit:
+
+```
+$ rm -rf temp
 ```

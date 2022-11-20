@@ -105,66 +105,92 @@ $ ssh courseName@spin.cs.princeton.edu
 $ mkdir -p ~/temp/yourNetID ; cd ~/temp/yourNetID
 ```
 
-3. Copy the student's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`), and replace `netID` with the student's netID. If you're logged into `cos126`, replace `submit` with `tigerfile`.
+3. Save the student's netID to a variable. Replace `netID` with the student's netID.
 
 ```
-$ cp -pr ~/submit/assignmentName/by_netid/netID ./netID
+$ SUBMISSION_NETID=netID
 ```
 
-4. Run the testing script, replacing `assignmentName` with the assignment name (usually lowercase; use tab completion if you aren't sure) and `netID` with the student's netID you used in step 3. The script may take a couple minutes to complete.
+4. Verify that the variable was properly set.
 
 ```
-$ ~/assignments/assignmentName/run-script netID
+$ echo $SUBMISSION_NETID
+the student's netID should appear here
 ```
 
-5. Push the submission and test output to codePost. Replace `assignmentName` with the assignment name as shown in codePost (usually has capitalization; keep the double quotes in the command), and `netID` with the student's netID you used in step 3.
+5. Copy the student's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`). If you're logged into `cos126`, replace `submit` with `tigerfile`.
 
 ```
-$ push-to-codePost --netid -a "assignmentName" -s netID
+$ cp -pr ~/submit/assignmentName/by_netid/$SUBMISSION_NETID ./$SUBMISSION_NETID
 ```
 
-6. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag. **Note that all grader comments will be removed.**
+6. Run the testing script, replacing `assignmentName` with the assignment name (usually lowercase; use tab completion if you aren't sure). The script may take a couple minutes to complete.
 
 ```
-$ push-to-codePost --netid -a "assignmentName" -s netID --overwrite
+$ ~/assignments/assignmentName/run-script $SUBMISSION_NETID
 ```
 
-7. Clean up a bit:
+7. Push the submission and test output to codePost. Replace `assignmentName` with the assignment name as shown in codePost (usually has capitalization; keep the double quotes in the command).
 
 ```
-$ rm -rf temp
+$ push-to-codePost --netid -a "assignmentName" -s $SUBMISSION_NETID
+```
+
+8. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag. **Note that all grader comments will be removed.**
+
+```
+$ push-to-codePost --netid -a "assignmentName" -s $SUBMISSION_NETID --overwrite
+```
+
+9. Clean up a bit.
+
+```
+$ rm -rf $SUBMISSION_NETID
 ```
 
 ## Uploading a Submission to codePost (GROUP SUBMISSION)
 
 1. Follow steps 1 and 2 in the [non-group submission section](#uploading-a-submission-to-codepost-non-group-submission) above.
 
-2. Copy the group's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`; may have differing capitalization), and replace `netID` with **one** netID in the group. If you're logged into `cos126`, replace `submit` with `tigerfile`.
+2. Get the group's submission hash and save it to the variable `SUBMISSION_HASH`. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`; may have differing capitalization), and replace `netID` with **one** netID in the group. If you're logged into `cos126`, replace `submit` with `tigerfile`.
 
 ```
-$ cp -pr ~/submit/assignmentName/submissions/$(groupLister2 ~/submit/assignmentName | grep netID | cut -f1 -d,) ./netID
+$ SUBMISSION_HASH=$(groupLister2 ~/submit/assignmentName | grep netID | cut -f1 -d,)
 ```
 
-3. Run the testing script, replacing `assignmentName` with the assignment name (usually lowercase; use tab completion if you aren't sure) and `netID` with one of the group's netIDs. The script may take a couple minutes to complete.
+3. Verify that a submission hash was found.
 
 ```
-$ ~/assignments/assignmentName/run-script netID
+$ echo $SUBMISSION_HASH
+92894c... some long string should appear here
 ```
 
-4. Push the submission and test output to codePost. Replace `assignmentName` with the assignment name as shown in codePost (usually has capitalization; keep the double quotes in the command) and `netID` with one of the group's netIDs.
+4. Copy the group's submission into your folder.
 
 ```
-$ push-to-codePost -a "assignmentName" -s netID
+$ cp -pr ~/submit/WordNet/submissions/$SUBMISSION_HASH ./$SUBMISSION_HASH
 ```
 
-5. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag. **Note that all grader comments will be removed.**
+5. Run the testing script, replacing `assignmentName` with the assignment name (usually lowercase; use tab completion if you aren't sure). The script may take a couple minutes to complete.
 
 ```
-$ push-to-codePost -a "assignmentName" -s netID --overwrite
+$ ~/assignments/assignmentName/run-script $SUBMISSION_HASH
 ```
 
-7. Clean up a bit:
+6. Push the submission and test output to codePost. Replace `assignmentName` with the assignment name as shown in codePost (usually has capitalization; keep the double quotes in the command).
 
 ```
-$ rm -rf temp
+$ push-to-codePost -a "assignmentName" -s $SUBMISSION_HASH
+```
+
+7. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag. **Note that all grader comments will be removed.**
+
+```
+$ push-to-codePost -a "assignmentName" -s $SUBMISSION_HASH --overwrite
+```
+
+8. Clean up a bit:
+
+```
+$ rm -rf $SUBMISSION_HASH
 ```

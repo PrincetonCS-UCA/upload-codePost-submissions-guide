@@ -123,7 +123,7 @@ $ ~/assignments/assignmentName/run-script netID
 $ push-to-codePost --netid -a "assignmentName" -s netID
 ```
 
-6. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag:
+6. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag. **Note that all grader comments will be removed.**
 
 ```
 $ push-to-codePost --netid -a "assignmentName" -s netID --overwrite
@@ -157,7 +157,7 @@ $ ~/assignments/assignmentName/run-script temp
 $ push-to-codePost -a "assignmentName" -s temp
 ```
 
-5. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag:
+5. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag. **Note that all grader comments will be removed.**
 
 ```
 $ push-to-codePost -a "assignmentName" -s temp --overwrite

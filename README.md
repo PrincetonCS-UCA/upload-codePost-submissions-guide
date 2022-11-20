@@ -142,25 +142,25 @@ $ rm -rf temp
 2. Copy the group's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`; may have differing capitalization), and replace `netID` with **one** netID in the group. If you're logged into `cos126`, replace `submit` with `tigerfile`.
 
 ```
-$ cp -pr ~/submit/assignmentName/submissions/$(groupLister2 ~/submit/assignmentName | grep netID | cut -f1 -d,) ./temp
+$ cp -pr ~/submit/assignmentName/submissions/$(groupLister2 ~/submit/assignmentName | grep netID | cut -f1 -d,) ./netID
 ```
 
-3. Run the testing script, replacing `assignmentName` with the assignment name (usually lowercase; use tab completion if you aren't sure). The script may take a couple minutes to complete.
+3. Run the testing script, replacing `assignmentName` with the assignment name (usually lowercase; use tab completion if you aren't sure) and `netID` with one of the group's netIDs. The script may take a couple minutes to complete.
 
 ```
-$ ~/assignments/assignmentName/run-script temp
+$ ~/assignments/assignmentName/run-script netID
 ```
 
-4. Push the submission and test output to codePost. Replace `assignmentName` with the assignment name as shown in codePost (usually has capitalization; keep the double quotes in the command).
+4. Push the submission and test output to codePost. Replace `assignmentName` with the assignment name as shown in codePost (usually has capitalization; keep the double quotes in the command) and `netID` with one of the group's netIDs.
 
 ```
-$ push-to-codePost -a "assignmentName" -s temp
+$ push-to-codePost -a "assignmentName" -s netID
 ```
 
 5. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag. **Note that all grader comments will be removed.**
 
 ```
-$ push-to-codePost -a "assignmentName" -s temp --overwrite
+$ push-to-codePost -a "assignmentName" -s netID --overwrite
 ```
 
 7. Clean up a bit:

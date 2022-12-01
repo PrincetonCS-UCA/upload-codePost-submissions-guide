@@ -111,38 +111,31 @@ $ mkdir -p ~/temp/yourNetID ; cd ~/temp/yourNetID
 $ SUBMISSION_NETID=netID
 ```
 
-4. Verify that the variable was properly set.
-
-```
-$ echo $SUBMISSION_NETID
-the student's netID should appear here
-```
-
-5. Copy the student's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`). If you're logged into `cos126`, replace `submit` with `tigerfile`.
+4. Copy the student's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`). If you're logged into `cos126`, replace `submit` with `tigerfile`.
 
 ```
 $ cp -pr ~/submit/assignmentName/by_netid/$SUBMISSION_NETID ./$SUBMISSION_NETID
 ```
 
-6. Run the testing script, replacing `assignmentName` with the assignment name (usually lowercase; use tab completion if you aren't sure). The script may take a couple minutes to complete.
+5. Run the testing script, replacing `assignmentName` with the assignment name (usually lowercase; use tab completion if you aren't sure). The script may take a couple minutes to complete.
 
 ```
 $ ~/assignments/assignmentName/run-script $SUBMISSION_NETID
 ```
 
-7. Push the submission and test output to codePost. Replace `assignmentName` with the assignment name as shown in codePost (usually has capitalization; keep the double quotes in the command).
+6. Push the submission and test output to codePost. Replace `assignmentName` with the assignment name as shown in codePost (usually has capitalization; keep the double quotes in the command).
 
 ```
 $ push-to-codePost --netid -a "assignmentName" -s $SUBMISSION_NETID
 ```
 
-8. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag. **Note that all grader comments will be removed.**
+7. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag. **Note that all grader comments will be removed.**
 
 ```
 $ push-to-codePost --netid -a "assignmentName" -s $SUBMISSION_NETID --overwrite
 ```
 
-9. Clean up a bit.
+8. Clean up a bit.
 
 ```
 $ rm -rf $SUBMISSION_NETID

@@ -164,10 +164,10 @@ $ echo $SUBMISSION_HASH
 92894c... some long string should appear here
 ```
 
-4. Copy the group's submission into your folder.
+4. Copy the group's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`; may have differing capitalization).
 
 ```
-$ cp -pr ~/$ROOT_DIR/WordNet/submissions/$SUBMISSION_HASH ./$SUBMISSION_HASH
+$ cp -pr ~/$ROOT_DIR/assignmentName/submissions/$SUBMISSION_HASH ./$SUBMISSION_HASH
 ```
 
 5. Run the testing script, replacing `assignmentName` with the assignment name (usually lowercase; use tab completion if you aren't sure). The script may take a couple minutes to complete.

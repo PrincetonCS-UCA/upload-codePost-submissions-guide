@@ -105,37 +105,43 @@ $ ssh courseName@spin.cs.princeton.edu
 $ mkdir -p ~/temp/yourNetID ; cd ~/temp/yourNetID
 ```
 
-3. Save the student's netID to a variable. Replace `netID` with the student's netID.
+3. Save the root directory name to a variable. If you're logged into `cos126`, replace `dirName` with `tigerfile`. If you're logged into `cos226`, replace `dirName` with `submit`.
+
+```
+$ ROOT_DIR=dirName
+```
+
+4. Save the student's netID to a variable. Replace `netID` with the student's netID.
 
 ```
 $ SUBMISSION_NETID=netID
 ```
 
-4. Copy the student's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`). If you're logged into `cos126`, replace `submit` with `tigerfile`.
+5. Copy the student's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`).
 
 ```
-$ cp -pr ~/submit/assignmentName/by_netid/$SUBMISSION_NETID ./$SUBMISSION_NETID
+$ cp -pr ~/$ROOT_DIR/assignmentName/by_netid/$SUBMISSION_NETID ./$SUBMISSION_NETID
 ```
 
-5. Run the testing script, replacing `assignmentName` with the assignment name (usually lowercase; use tab completion if you aren't sure). The script may take a couple minutes to complete.
+6. Run the testing script, replacing `assignmentName` with the assignment name (usually lowercase; use tab completion if you aren't sure). The script may take a couple minutes to complete.
 
 ```
 $ ~/assignments/assignmentName/run-script $SUBMISSION_NETID
 ```
 
-6. Push the submission and test output to codePost. Replace `assignmentName` with the assignment name as shown in codePost (usually has capitalization; keep the double quotes in the command).
+7. Push the submission and test output to codePost. Replace `assignmentName` with the assignment name as shown in codePost (usually has capitalization; keep the double quotes in the command).
 
 ```
 $ push-to-codePost --netid -a "assignmentName" -s $SUBMISSION_NETID
 ```
 
-7. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag. **Note that all grader comments will be removed.**
+8. If the script throws an error such as `[INFO] Submission: Status of netid inconclusive, output: '[ERROR] '`, try rerunning the above command with the `--overwrite` flag. **Note that all grader comments will be removed.**
 
 ```
 $ push-to-codePost --netid -a "assignmentName" -s $SUBMISSION_NETID --overwrite
 ```
 
-8. Clean up a bit.
+9. Clean up a bit.
 
 ```
 $ rm -rf $SUBMISSION_NETID
@@ -143,12 +149,12 @@ $ rm -rf $SUBMISSION_NETID
 
 ## Uploading a Submission to codePost (GROUP SUBMISSION)
 
-1. Follow steps 1 and 2 in the [non-group submission section](#uploading-a-submission-to-codepost-non-group-submission) above.
+1. Follow steps 1-3 in the [non-group submission section](#uploading-a-submission-to-codepost-non-group-submission) above.
 
-2. Get the group's submission hash and save it to the variable `SUBMISSION_HASH`. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`; may have differing capitalization), and replace `netID` with **one** netID in the group. If you're logged into `cos126`, replace `submit` with `tigerfile`.
+2. Get the group's submission hash and save it to the variable `SUBMISSION_HASH`. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`; may have differing capitalization), and replace `netID` with **one** netID in the group.
 
 ```
-$ SUBMISSION_HASH=$(groupLister2 ~/submit/assignmentName | grep netID | cut -f1 -d,)
+$ SUBMISSION_HASH=$(groupLister2 ~/$ROOT_DIR/assignmentName | grep netID | cut -f1 -d,)
 ```
 
 3. Verify that a submission hash was found.
@@ -161,7 +167,7 @@ $ echo $SUBMISSION_HASH
 4. Copy the group's submission into your folder.
 
 ```
-$ cp -pr ~/submit/WordNet/submissions/$SUBMISSION_HASH ./$SUBMISSION_HASH
+$ cp -pr ~/$ROOT_DIR/WordNet/submissions/$SUBMISSION_HASH ./$SUBMISSION_HASH
 ```
 
 5. Run the testing script, replacing `assignmentName` with the assignment name (usually lowercase; use tab completion if you aren't sure). The script may take a couple minutes to complete.

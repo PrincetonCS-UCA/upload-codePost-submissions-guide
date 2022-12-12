@@ -117,7 +117,7 @@ $ ROOT_DIR=dirName
 $ SUBMISSION_NETID=netID
 ```
 
-5. Copy the student's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`).
+5. Copy the student's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`; may have differing capitalization). Note that using tab completion may result in the `$` being escaped with a `\`. Remove the `\` if this happens.
 
 ```
 $ cp -pr ~/$ROOT_DIR/assignmentName/by_netid/$SUBMISSION_NETID ./$SUBMISSION_NETID
@@ -164,7 +164,7 @@ $ echo $SUBMISSION_HASH
 92894c... some long string should appear here
 ```
 
-4. Copy the group's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`; may have differing capitalization).
+4. Copy the group's submission into your folder. Replace `assignmentName` with the assignment name (e.g. `Autocomplete`; may have differing capitalization). Note that using tab completion may result in the `$` being escaped with a `\`. Remove the `\` if this happens.
 
 ```
 $ cp -pr ~/$ROOT_DIR/assignmentName/submissions/$SUBMISSION_HASH ./$SUBMISSION_HASH

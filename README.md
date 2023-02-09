@@ -105,10 +105,10 @@ $ ssh courseName@spin.cs.princeton.edu
 $ mkdir -p ~/temp/yourNetID ; cd ~/temp/yourNetID
 ```
 
-3. Save the root directory name to a variable. If you're logged into `cos126`, replace `dirName` with `tigerfile`. If you're logged into `cos226`, replace `dirName` with `submit`.
+3. Save the root directory name to a variable.
 
 ```
-$ ROOT_DIR=dirName
+$ ROOT_DIR=tigerfile
 ```
 
 4. Save the student's netID to a variable. Replace `netID` with the student's netID.
